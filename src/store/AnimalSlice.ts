@@ -6,9 +6,11 @@ type Animal = {
   image: string;
 };
 
-
 const storedAnimalData = localStorage.getItem('animal');
-const initialAnimalList: Animal[] = JSON.parse(storedAnimalData || '[]');
+const initialAnimalList: Animal[] = JSON.parse(
+  storedAnimalData ||
+    '[{"id":"bbfd01643a8d9","name":"Alpaca","image":"https://i.pinimg.com/736x/a7/e3/fb/a7e3fb9f8f3676e7acc239529f28c8ac.jpg"},{"id":"2","name":"Cat","image":"https://hips.hearstapps.com/hmg-prod/images/russian-blue-royalty-free-image-1658451809.jpg"},{"id":"15f947d25a4c2","name":"Dog","image":"https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"},{"id":"fed63e1057548","name":"Ferret","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP6XaXYB6nyUGSacWeDtteAF3sA4k5hHvZhQ&usqp=CAU"},{"id":"9e2eb682d82ba","name":"Fox","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkVaW1cvxEgQGzyPV6y4c4_laUl9OZUy4yEA&usqp=CAU"},{"id":"0","name":"Pig","image":"https://i.pinimg.com/564x/b2/6c/99/b26c998d89d23f06e315107f88927e9b.jpg"},{"id":"6dada8ffd3872","name":"Seal","image":"https://files.worldwildlife.org/wwfcmsprod/images/HERO_harbor_seal_on_ice/hero_small/41yzw17euy_Harbor_Seal_on_Ice_close_0357_6_11_07.jpg"}]'
+);
 
 const initialState = {
   animals: initialAnimalList,
