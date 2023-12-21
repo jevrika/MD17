@@ -8,7 +8,6 @@ function App() {
   const [id, setId] = useLocalStorage('id', '')
   const [image, setImage] = useLocalStorage('image', '')
 
-
   return (
     <div className={styles.container}>
       <Form image={image} name={name} id={id} handleImage={setImage} handleInput={setName} handleName={setName} handleId={setId}/>
