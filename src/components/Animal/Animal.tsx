@@ -2,7 +2,7 @@ import styles from './animal.module.css'
 import { useDispatch } from 'react-redux'
 import { deleteAnimal } from '../../store/AnimalSlice'
 import Button from '../Button/Button'
-import { setUpdate } from '../../store/appSlice'
+import { setEdit } from '../../store/appSlice'
 
 type AnimalProps = {
   id: string,
@@ -17,7 +17,7 @@ const Animal = ({ image, id, name, handleImage, handleId, handleName }: AnimalPr
   const dispatch = useDispatch()
 
   const setEditMode = () => {
-    dispatch(setUpdate(true))
+    dispatch(setEdit(true))
   }
 
   const deleteAnimalCard = () => {

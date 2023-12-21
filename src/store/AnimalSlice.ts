@@ -39,13 +39,13 @@ const animalSlice = createSlice({
       state.list = state.list.filter((animal) => animal.id !== String(action.payload));
       localStorage.setItem('animal', JSON.stringify(state.list));
     },
-    updateAnimal(state, action: PayloadAction<{ id: string; name: string; image: string }>) {
+    editAnimal(state, action: PayloadAction<{ id: string; name: string; image: string }>) {
       state.list[parseInt(action.payload.id)].name = action.payload.name;
       state.list[parseInt(action.payload.id)].image = action.payload.image;
       localStorage.setItem('animal', JSON.stringify(state.list));
     },
     sortAnimals(state, action: PayloadAction<string>) {
-      if (action.payload === 'asc') {
+      if (action.payload === 'desc') {
         state.list.sort((a, b) => a.name.localeCompare(b.name));
       } else {
         state.list.sort((a, b) => b.name.localeCompare(a.name));
@@ -54,5 +54,5 @@ const animalSlice = createSlice({
   },
 });
 
-export const { addAnimal, deleteAnimal, updateAnimal, sortAnimals } = animalSlice.actions;
+export const { addAnimal, deleteAnimal, editAnimal, sortAnimals } = animalSlice.actions;
 export const animalSliceReducer = animalSlice.reducer;

@@ -1,7 +1,7 @@
 import useLocalStorage from "use-local-storage";
 import styles from './App.module.css'
 import AnimalsList from './components/AnimalsList/AnimalsList'
-import InputField from './components/Form/Form'
+import Form from './components/Form/Form'
 
 function App() {
   const [name, setName] = useLocalStorage('name', '')
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <InputField image={image} name={name} id={id} handleImage={setImage} handleInput={setName} handleName={setName} handleId={setId}/>
+      <Form image={image} name={name} id={id} handleImage={setImage} handleInput={setName} handleName={setName} handleId={setId}/>
       <AnimalsList handleId={setId} handleName={setName} handleImage={setImage} />
     </div>
   )

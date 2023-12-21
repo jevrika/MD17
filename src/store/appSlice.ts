@@ -12,7 +12,7 @@ const appSlice = createSlice({
   name: 'app',
   initialState: initialAppState,
   reducers: {
-    setUpdate(state, action: PayloadAction<boolean>) {
+    setEdit(state, action: PayloadAction<boolean>) {
       state.isEdit = action.payload;
       localStorage.setItem('app', JSON.stringify(state));
     },
@@ -23,5 +23,5 @@ const appSlice = createSlice({
   },
 });
 
-export const { setUpdate, setSort } = appSlice.actions;
+export const { setEdit, setSort } = appSlice.actions;
 export const appSliceReducer = appSlice.reducer;
