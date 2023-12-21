@@ -2,14 +2,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap:25px;
+  gap:15px;
   margin:0;
+
 }
 
 .input {
   border:1px solid #dfdede;
   border-radius:5px;
-  padding:5px;
+  padding:15px;
   width: 100%;
 }
 

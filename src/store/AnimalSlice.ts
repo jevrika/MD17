@@ -28,7 +28,7 @@ const animalSlice = createSlice({
         alert('Fill the image ulr field');
       } else {
         state.list.push({
-          id: String(Math.random()),
+          id: String(state.list.length),
           name: action.payload.name,
           image: action.payload.image,
         });
@@ -53,7 +53,6 @@ const animalSlice = createSlice({
     },
   },
 });
-
 
 export const { addAnimal, deleteAnimal, updateAnimal, sortAnimals } = animalSlice.actions;
 export const animalSliceReducer = animalSlice.reducer;

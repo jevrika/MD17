@@ -1,11 +1,11 @@
 .buttonWrapper{
   width: 100%;
   display: flex;
-  gap:15px;
+  gap:10px;
 }
 
 button{
-  padding: 5px 25px;
+  padding: 10px 25px;
   border-radius: 5px;
   border: 1px solid transparent;
   width: 100px;

@@ -13,24 +13,28 @@ type AnimalProps = {
   handleImage: (arg0: string) => void,
 }
 
-const Animal = ({ image, id, name,handleImage, handleId, handleName }: AnimalProps) => {
+const Animal = ({ image, id, name, handleImage, handleId, handleName }: AnimalProps) => {
   const dispatch = useDispatch()
 
   const setEditMode = () => {
     dispatch(setUpdate(true))
   }
 
+  const deleteAnimalCard = () => {
+    dispatch(deleteAnimal( Number(id) ))  
+  }
+
 
   return (
     <div className={styles.animalWrapper}>
       <li className={styles.animalItem} key={id}>
-        {name}
+        <p className={styles.animalName}>{name}</p>
         <div className={styles.imageWrapper}>
           <img className={styles.animalImage} alt={image} src={image}></img>
         </div>
         <div className={styles.buttonWrapper}>
-          <Button buttonText={'Edit'} className={'editButton'} buttonType={'button'} onClick={() => { handleId(id); handleName(name); handleImage(image) ;setEditMode()}} />
-          <Button buttonText={'Delete'} className={'deleteButton'} buttonType={'button'} onClick={() => dispatch(deleteAnimal(Number(id)))} />
+          <Button buttonText={'Edit'} className={'editButton'} buttonType={'button'} onClick={() => { handleId(id); handleName(name); handleImage(image); setEditMode() }} />
+          <Button buttonText={'Delete'} className={'deleteButton'} buttonType={'button'} onClick={() => deleteAnimalCard()} />
         </div>
       </li>
 
