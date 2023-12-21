@@ -1,0 +1,42 @@
+.buttonWrapper{
+  width: 100%;
+  display: flex;
+  gap:15px;
+}
+
+button{
+  padding: 5px 25px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  width: 100px;
+  cursor: pointer;
+  opacity: 1;
+  text-wrap: nowrap;
+  width: 100%;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.editButton {
+  background-color: #d1ffff;
+
+}
+
+.deleteButton {
+  background-color: #ffbfbf;
+
+}
+
+.addAnimalButton{
+  background-color: #ccf7cc;
+}
+
+.updateAnimalButton{
+  background-color: #d1ffff;
+}
+
+.sortButton{
+  background-color: beige;
+}

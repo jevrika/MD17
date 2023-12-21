@@ -1,0 +1,36 @@
+.animalWrapper{
+  border: 1px solid #dfdede;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.animalItem {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+  
+}
+
+.animalImage{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit:cover;
+}
+
+.imageWrapper{
+  max-height: 200px;
+  width: 100%;
+  height: 100%;
+}
+
+.buttonWrapper{
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+}
