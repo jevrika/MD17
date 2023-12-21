@@ -6,15 +6,12 @@ type Animal = {
   image: string;
 };
 
-type AnimalState = {
-  list: Animal[];
-};
 
 const storedAnimalData = localStorage.getItem('animal');
-const initialAnimalList: Animal[] = JSON.parse(storedAnimalData || '[]') ? JSON.parse(storedAnimalData || '[]') : [];
+const initialAnimalList: Animal[] = JSON.parse(storedAnimalData || '[]');
 
-const initialState: AnimalState = {
-  list: initialAnimalList,
+const initialState = {
+  animals: initialAnimalList,
 };
 
 const animalSlice = createSlice({
@@ -27,28 +24,28 @@ const animalSlice = createSlice({
       } else if (action.payload.image.length === 0) {
         alert('Fill the image ulr field');
       } else {
-        state.list.push({
-          id: String(state.list.length),
+        state.animals.push({
+          id: String(state.animals.length),
           name: action.payload.name,
           image: action.payload.image,
         });
       }
-      localStorage.setItem('animal', JSON.stringify(state.list.map((animal) => animal)));
+      localStorage.setItem('animal', JSON.stringify(state.animals.map((animal) => animal)));
     },
     deleteAnimal(state, action: PayloadAction<number>) {
-      state.list = state.list.filter((animal) => animal.id !== String(action.payload));
-      localStorage.setItem('animal', JSON.stringify(state.list));
+      state.animals = state.animals.filter((animal) => animal.id !== String(action.payload));
+      localStorage.setItem('animal', JSON.stringify(state.animals));
     },
     editAnimal(state, action: PayloadAction<{ id: string; name: string; image: string }>) {
-      state.list[parseInt(action.payload.id)].name = action.payload.name;
-      state.list[parseInt(action.payload.id)].image = action.payload.image;
-      localStorage.setItem('animal', JSON.stringify(state.list));
+      state.animals[parseInt(action.payload.id)].name = action.payload.name;
+      state.animals[parseInt(action.payload.id)].image = action.payload.image;
+      localStorage.setItem('animal', JSON.stringify(state.animals));
     },
     sortAnimals(state, action: PayloadAction<string>) {
       if (action.payload === 'desc') {
-        state.list.sort((a, b) => a.name.localeCompare(b.name));
+        state.animals.sort((a, b) => a.name.localeCompare(b.name));
       } else {
-        state.list.sort((a, b) => b.name.localeCompare(a.name));
+        state.animals.sort((a, b) => b.name.localeCompare(a.name));
       }
     },
   },

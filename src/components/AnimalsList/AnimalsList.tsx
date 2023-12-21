@@ -10,7 +10,7 @@ type AnimalListProps = {
 }
 
 const AnimalsList = ({ handleId, handleName, handleImage }: AnimalListProps) => {
-  const animals = useSelector((state: RootState) => state.animals.list);
+  const animals = useSelector((state: RootState) => state.animals.animals);
   const isAnimalsExist = animals.length === 0 ? false : true
 
   return (
