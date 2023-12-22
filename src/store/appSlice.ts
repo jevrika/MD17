@@ -6,7 +6,8 @@ type App = {
 };
 
 const storedAppData = localStorage.getItem('app');
-const initialAppState: App = JSON.parse(storedAppData || '[]') ? { sort: 'asc', isEdit: false } : JSON.parse(storedAppData || '[]');
+const initialAppState: App = JSON.parse(storedAppData || '[]') ? JSON.parse(storedAppData || '[]') : { sort: 'asc', isEdit: false };
+console.log(initialAppState);
 
 const appSlice = createSlice({
   name: 'app',

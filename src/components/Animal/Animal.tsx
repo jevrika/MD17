@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux'
 import { deleteAnimal } from '../../store/AnimalSlice'
 import Button from '../Button/Button'
 import { setEdit } from '../../store/appSlice'
+import { AnimalType } from '../../App'
 
 type AnimalProps = {
   id: string,
   name: string,
   image: string;
-  handleId: (arg0: string) => void,
-  handleName: (arg0: string) => void,
-  handleImage: (arg0: string) => void,
+  handleAnimal: (animal: AnimalType | undefined) => void;
+  animalData:{ id: string, name: string, image: string },
 }
 
-const Animal = ({ image, id, name, handleImage, handleId, handleName }: AnimalProps) => {
+const Animal = ({ image, id, name, handleAnimal }: AnimalProps) => {
   const dispatch = useDispatch()
 
   const setEditMode = () => {
@@ -24,7 +24,6 @@ const Animal = ({ image, id, name, handleImage, handleId, handleName }: AnimalPr
     dispatch(deleteAnimal( Number(id) ))  
   }
 
-
   return (
     <div className={styles.animalWrapper}>
       <li className={styles.animalItem} key={id}>
@@ -33,7 +32,7 @@ const Animal = ({ image, id, name, handleImage, handleId, handleName }: AnimalPr
           <img className={styles.animalImage} alt={image} src={image}></img>
         </div>
         <div className={styles.buttonWrapper}>
-          <Button buttonText={'Edit'} className={'editButton'} buttonType={'button'} onClick={() => { handleId(id); handleName(name); handleImage(image); setEditMode() }} />
+          <Button buttonText={'Edit'} className={'editButton'} buttonType={'button'} onClick={() => { handleAnimal({id,name,image}); setEditMode() }} />
           <Button buttonText={'Delete'} className={'deleteButton'} buttonType={'button'} onClick={() => deleteAnimalCard()} />
         </div>
       </li>
